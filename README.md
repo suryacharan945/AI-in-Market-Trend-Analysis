@@ -1,155 +1,127 @@
-```markdown
-# 📊 AI Market Trend Analysis Platform
+# AI in Market Trend Analysis
 
-An **end-to-end, production-ready AI application** that performs **real-time demand forecasting** and **customer sentiment analysis** using multiple machine learning and deep learning models, deployed through an interactive **Streamlit dashboard**.
+An end-to-end **AI-powered market intelligence platform** that analyzes historical sales data and customer reviews to generate actionable business insights.  
+The system integrates **time-series forecasting, deep learning, NLP-based sentiment analysis, and anomaly detection**, deployed through an interactive **Streamlit dashboard**.
 
-This project demonstrates **full AI system development**, from model training to real-time inference and deployment.
+🔗 **Live Demo:** https://ai-in-market-trend-analysis.streamlit.app/
+
+---
+
+## 📌 Project Overview
+
+Understanding market behavior is critical for effective business decision-making. This project applies Artificial Intelligence techniques to:
+
+- Forecast future sales trends
+- Analyze the impact of promotions
+- Understand customer sentiment from reviews
+- Detect anomalies in sales and sentiment patterns
+- Provide interpretable, business-ready insights
+
+The project is developed as part of **Module E: AI Applications – Individual Open Project**.
 
 ---
 
 ## 🚀 Key Features
 
-### 🔮 Real-Time Demand Forecasting
-- **Statistical Forecasting (Prophet)**  
-  Forecasts future sales using historical data and optional promotion signals.
-- **Deep Learning Forecasting (LSTM)**  
-  Predicts next-month demand by learning non-linear temporal patterns from recent sales history.
-- Supports **user-uploaded CSV files**
-- Forecast outputs are **downloadable**
-
-### 💬 Real-Time Customer Sentiment Analysis
-- NLP-based sentiment classification using **TF-IDF + Logistic Regression**
-- Supports:
-  - Single review input
-  - Batch review CSV upload
-- Outputs:
-  - Sentiment label (Positive / Neutral / Negative)
-  - Class probability scores
-
-### 🧠 Multi-Model AI Architecture
-- Independent ML pipelines integrated at the inference layer
-- No retraining during deployment (industry best practice)
-- Modular, scalable, and deployment-ready design
+- **Demand Forecasting**
+  - Prophet-based statistical forecasting
+  - LSTM deep learning model for non-linear temporal patterns
+- **Promotion Impact Analysis**
+  - External regressor integration to model promotion effects
+- **Customer Sentiment Analysis**
+  - TF-IDF + Logistic Regression for review sentiment classification
+- **Anomaly Detection**
+  - Isolation Forest for identifying unusual sales and sentiment behavior
+- **Interactive Dashboard**
+  - User-friendly Streamlit app for exploration and insights
 
 ---
 
-## 🗂️ Project Structure
+## 🧠 AI & ML Techniques Used
 
-```
-
-Market-Trend-Analysis/
-├── app1.py                        # Streamlit application
-├── requirements.txt               # Python dependencies
-├── prophet_demand_forecast.pkl    # Trained Prophet model
-├── lstm_demand_forecast.keras     # Trained LSTM model
-├── feature_scaler.pkl             # Scaler for LSTM inputs
-├── sentiment_model.pkl            # NLP sentiment classifier
-├── tfidf_vectorizer.pkl           # TF-IDF vectorizer
-└── README.md
-
-````
+- **Time Series Forecasting:** Prophet, LSTM (Keras)
+- **Natural Language Processing:** TF-IDF, Logistic Regression
+- **Anomaly Detection:** Isolation Forest
+- **Evaluation Metrics:** MAPE, MAE, RMSE, Accuracy, Confusion Matrix
 
 ---
 
-## 📥 Input Data Formats
-
-### 📈 Demand Forecasting (Prophet)
-CSV format:
-```csv
-date,sales,promo_ratio
-2017-01-01,24500000,0.2
-2017-02-01,25100000,0.15
-2017-03-01,26300000,0.3
-````
-
-* `promo_ratio` is optional
-* Minimum **3 rows** required
-
----
-
-### 🤖 LSTM Forecasting
-
-CSV format (minimum **6 rows**):
-
-```csv
-sales,promo_ratio
-24500000,0.2
-25100000,0.15
-26300000,0.3
-```
+## 🗂️ Repository Structure
+AI-in-Market-Trend-Analysis/
+│
+├── AI in Market Trend Analysis Final.ipynb # Main evaluation notebook
+├── app1.py # Streamlit application
+├── requirements.txt # Project dependencies
+├── README.md # Project documentation
+│
+├── prophet_demand_forecast.pkl # Trained Prophet model
+├── lstm_demand_forecast.keras # Trained LSTM model
+├── feature_scaler.pkl # Scaler for LSTM features
+├── sentiment_model.pkl # Sentiment classification model
+└── tfidf_vectorizer.pkl # TF-IDF vectorizer
 
 ---
 
-### 💬 Sentiment Analysis
+## 📊 Datasets Used
 
-CSV format:
+- **Store Sales Time Series Dataset (Kaggle)**
+  - Used for demand forecasting and trend analysis
+- **Amazon Fine Food Reviews Dataset (Kaggle)**
+  - Used for customer sentiment analysis
 
-```csv
-review
-"This product is amazing!"
-"Very disappointed with the quality."
-```
+All datasets are publicly available and anonymized.
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ How to Run the Project Locally
 
 ### 1️⃣ Clone the Repository
-
 ```bash
 git clone https://github.com/suryacharan945/AI-in-Market-Trend-Analysis.git
 cd AI-in-Market-Trend-Analysis
 ```
-
-### 2️⃣ Install Dependencies
-
-```bash
+2️⃣ Install Dependencies
+```
 pip install -r requirements.txt
 ```
-
-### 3️⃣ Run the Streamlit Application
-
-```bash
+3️⃣ Run the Notebook
+```
+AI in Market Trend Analysis Final.ipynb
+```
+4️⃣ Run Streamlit App
+```
 streamlit run app1.py
 ```
+📈 Results & Insights
 
----
+Prophet and LSTM models effectively capture seasonal and long-term sales trends
 
+Promotion intensity improves forecasting stability
 
+Sentiment model achieves high precision for positive and negative classes
 
-## 🧠 Technical Stack
+Anomaly detection highlights demand spikes, drops, and sentiment shifts
 
-* **Python**
-* **Streamlit** – Interactive web application
-* **Prophet** – Time-series demand forecasting
-* **TensorFlow / Keras** – LSTM deep learning model
-* **scikit-learn** – NLP & machine learning
-* **TF-IDF + Logistic Regression** – Sentiment analysis
-* **Pandas, NumPy, Matplotlib** – Data processing & visualization
+The system provides strong decision support for inventory, pricing, and marketing strategies
 
----
+⚖️ Ethical Considerations
 
-## 📌 Design Decisions
+Uses publicly available, anonymized datasets
 
-* Models trained on different datasets were **not merged artificially**
-* Integrated at the **inference layer** for real-time prediction
-* User-driven inputs enable flexible forecasting
-* Emphasis on deployment-ready, industry-aligned practices
+Predictions are intended as decision-support, not automated decision-making
 
----
+Model limitations and data biases are acknowledged
 
-## 🏆 Use Cases
+Designed with transparency and responsible AI principles
 
-* Sales & demand forecasting
-* Inventory planning
-* Promotion impact analysis
-* Customer feedback monitoring
-* Market trend intelligence dashboards
+🔮 Future Enhancements
 
----
+Integration of external factors (economic indicators, holidays, weather)
 
-## 👨‍💻 Author
+Transformer-based forecasting models
 
-**Surya Charan Pallekala**
-B.Tech Student | Minor in AI (IIT Ropar)
-Machine Learning • Data Science • AI Systems
+BERT-based sentiment analysis
+
+Real-time data ingestion via APIs
+
+Explainable AI techniques for improved transparency
